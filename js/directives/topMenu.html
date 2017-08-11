@@ -1,0 +1,28 @@
+<!--menu-->
+<div class="header_top"></div>
+<div class="ctrl" ng-controller="MenuController as menuCtrl">
+    <div class="menu">
+        <header class="container">
+            <div class="navbar navbar-inner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1>List of tasks</h1>
+                    </div>
+                    <div class="collapse navbar-collapse pull-right" id="main-menu">
+                        <ul class="nav">
+                            <li class="fadeInDown animated d1 "><a href="#!/" class="active" id="home" menuid="0" followlink="true">Home</a></li>
+                            <li class="fadeInDown animated d2"><a ng-click="menuCtrl.reloadRoute()" ng-mouseenter="hover = true" ng-mouseleave="hover = false"><i class="fa fa-refresh fa-3x"  ng-class="{'fa-spin': hover}" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+<!--end-menu-->

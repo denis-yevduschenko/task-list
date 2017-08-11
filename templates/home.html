@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col-xs-12 section-top">
+        <h1>App has <span class="label label-info">{{mainCtrl.data.length}}</span> items in list</h1>
+        <hr>
+    </div>
+</div>
+<div class="container tasks">
+    <div class="col-xs-12">
+        <div class="row tasks-title">
+            <div class="col-xs-2">Title:</div>
+            <div class="col-xs-1">Status:</div>
+            <div class="col-xs-2">Actual effort:</div>
+            <div class="col-xs-2">Estimated effort:</div>
+            <div class="col-xs-3">Due date:</div>
+            <div class="col-xs-2">Tags:</div>
+        </div>
+
+        <div class='row tasks-item'
+             ng-repeat="item in mainCtrl.data |  filter:{ obj_status: 'Active' }"
+             ng-class="{'high-priority': item.is_high_priority}">
+            <div class="col-xs-2">
+                <a href="#!/task/{{item.id}}">
+                    {{item.name}}
+                </a>
+            </div>
+            <div class="col-xs-1">{{item.obj_status}}</div>
+            <div class="col-xs-2">{{item.actual_effort | number:2 | ifEmpty:'N/A'}}</div>
+            <div class="col-xs-2">{{item.estimated_effort | number:2 | ifEmpty:'N/A'}}</div>
+            <div class="col-xs-3">{{item.due_date | date:"yyyy/MM/dd 'at' H:mm" | ifEmpty:'N/A'}}</div>
+            <div class="col-xs-2" ng-if="item.tags">
+                <span ng-repeat="tag in item.tags">
+                    {{tag}}
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
